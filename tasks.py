@@ -68,14 +68,16 @@ def setup_virtualenv(c):  # noqa: ANN001, ANN201
 def start(c):  # noqa: ANN001, ANN201
     """Start the web service"""
     with c.prefix(venv):
-        c.run("python app.py")
+        # c.run("python app.py")
+        c.run("python main.py")
 
 
 @task(pre=[require_venv])
 def dev(c):  # noqa: ANN001, ANN201
     """Start the web service in a development environment, with fast reload"""
     with c.prefix(venv):
-        c.run("FLASK_ENV=development python app.py")
+        # c.run("FLASK_ENV=development python app.py")
+        c.run("FLASK_ENV=development python main.py")
 
 
 @task(pre=[require_venv])
